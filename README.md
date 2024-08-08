@@ -1,5 +1,10 @@
 # DCF-Fair-Value-Web-App
-A web app to calculate the fair value of a stock with the Discounted Free Cash Flow method.
-Using Holt-Winters Damped Exponential Smoothing for forecasting.
+Calculate the fair value of any stock with the discounted free cash flow method. 
+Just input the ticker.
 
-Use it here: https://watneys-wealth-wizard.streamlit.app/
+**Try it here: https://watneys-wealth-wizard.streamlit.app/**
+
+Using Holt-Winters damped exponential smoothing tp forcast future revenue and net income margins.
+
+## ✌️ License
+[MIT](https://opensource.org/licenses/MIT)
