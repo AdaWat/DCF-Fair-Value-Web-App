@@ -106,7 +106,7 @@ st.sidebar.title("Inputs")
 ticker = st.sidebar.text_input("Enter stock ticker:", value="MCD").upper()
 perpetualGrowthRate = st.sidebar.slider("Perpetual Growth Rate:", min_value=0.005, max_value=0.050, value=0.025, step=0.005, format="%.3f")
 
-st.title("DCF Fair Value Calculator")
+st.title("Watney's Wealth Wizard: DCF")
 
 if ticker:
     try:
@@ -139,7 +139,7 @@ if ticker:
             st.markdown(
                 f"""
                 <div style="background-color: {boxColor}; padding: 20px; border-radius: 10px; text-align: center;">
-                    <h2 style='color:{textColor}'>{ticker} Fair Value: {round(fairValue, 2)}</h2>
+                    <h2 style='color:{textColor}'>{ticker}'s Fair Value: {round(fairValue, 2)}</h2>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -148,32 +148,61 @@ if ticker:
             # Adding padding
             st.markdown("<br>", unsafe_allow_html=True)
 
-            st.write(f"**Current Price:** {round(currentPrice, 2)}")
-        else:
             st.markdown(
                 f"""
-                <div style="background-color: Gainsboro; padding: 20px; border-radius: 10px; text-align: center;">
-                    <h2 style='color: black'>Fair Value: {round(fairValue, 2)}</h2>
+                <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
+                    <h8><b>Current Price</b>: {round(currentPrice, 2)}</h8>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
-
+        else:
+            st.markdown(
+                f"""
+                <div style="background-color: Gainsboro; padding: 20px; border-radius: 10px; text-align: center;">
+                    <h2 style='color: black'>{ticker}'s Fair Value: {round(fairValue, 2)}</h2>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
             # Adding padding
             st.markdown("<br>", unsafe_allow_html=True)
 
 
         peg = stock.info.get("pegRatio")
         if peg:
-            st.write(f"**PEG Ratio:** {round(peg, 2)}")
+            st.markdown(
+                f"""
+                <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
+                    <h8><b>PEG Ratio</b>: {round(peg, 2)}</h8>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
         pe = stock.info.get("trailingPE")
         if pe:
-            st.write(f"**PE Ratio:** {round(pe, 2)}")
+            st.markdown(
+                f"""
+                <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
+                    <h8><b>PE Ratio</b>: {round(pe, 2)}</h8>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
 
         ev_ebitda = stock.info.get("enterpriseToEbitda")
         if ev_ebitda:
-            st.write(f"**EV/EBITDA Ratio:** {round(ev_ebitda, 2)}")
+            st.markdown(
+                f"""
+                <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center;">
+                    <h8><b>EV/EBITDA: </b>: {round(ev_ebitda, 2)}</h8>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+        st.markdown("<br>", unsafe_allow_html=True)
 
         st.write("**Projected Free Cash Flow:**")
         overallCashFlow = pd.concat([projectedFreeCashFlow[1:], freeCashFlow])
