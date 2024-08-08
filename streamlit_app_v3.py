@@ -78,8 +78,6 @@ def dcf(tick, requiredReturn, perpetualGrowthRate):
 
     projectedFreeCashFlow = projectedNetIncome * freeCashFlowRate
     sharesOutstanding = tick.info.get("sharesOutstanding")
-    if sharesOutstanding is None:
-        raise KeyError("The Yahoo Finance API isn't providing the number of shares outstanding. Please provide a different stock, or try again later.")
 
     terminalValue = projectedFreeCashFlow.iloc[0] * (1 + perpetualGrowthRate) / (requiredReturn - perpetualGrowthRate)
     projectedFreeCashFlow = pd.concat([pd.Series(terminalValue), projectedFreeCashFlow])    # add terminalValue (it has index label 0)
