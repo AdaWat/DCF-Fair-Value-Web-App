@@ -149,7 +149,7 @@ if ticker:
             st.markdown(
                 f"""
                 <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
-                    <h8><b>Current Price</b>: {round(currentPrice, 2)}</h8>
+                    <h8><b>Current Price:</b> {round(currentPrice, 2)}</h8>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -172,7 +172,7 @@ if ticker:
             st.markdown(
                 f"""
                 <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
-                    <h8><b>PEG Ratio</b>: {round(peg, 2)}</h8>
+                    <h8><b>PEG Ratio:</b> {round(peg, 2)}</h8>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -183,7 +183,7 @@ if ticker:
             st.markdown(
                 f"""
                 <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center; margin-bottom: 10px;">
-                    <h8><b>PE Ratio</b>: {round(pe, 2)}</h8>
+                    <h8><b>PE Ratio:</b> {round(pe, 2)}</h8>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -194,7 +194,7 @@ if ticker:
             st.markdown(
                 f"""
                 <div style="border: 1px solid Gainsboro; border-radius: 5px; text-align: center;">
-                    <h8><b>EV/EBITDA: </b>: {round(ev_ebitda, 2)}</h8>
+                    <h8><b>EV/EBITDA:</b> {round(ev_ebitda, 2)}</h8>
                 </div>
                 """,
                 unsafe_allow_html=True,
