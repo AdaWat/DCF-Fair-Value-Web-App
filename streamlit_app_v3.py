@@ -98,13 +98,13 @@ def dcf(tick, requiredReturn, perpetualGrowthRate):
     return max(fairValue, 0), freeCashFlow, projectedFreeCashFlow, pastRevenue, projectedRevenue, pastNetIncome, projectedNetIncome
 
 
-st.set_page_config(page_title="Watney's Wealth Wizard")
+st.set_page_config(page_title="DCF Intrinsic Value Calculator")
 
 st.sidebar.title("Inputs")
 ticker = st.sidebar.text_input("Enter stock ticker:", value="MCD").upper()
 perpetualGrowthRate = st.sidebar.slider("Perpetual Growth Rate:", min_value=0.005, max_value=0.050, value=0.025, step=0.005, format="%.3f")
 
-st.title("Watney's Wealth Wizard: DCF")
+st.title("DCF Intrinsic Value Calculator")
 
 if ticker:
     try:
